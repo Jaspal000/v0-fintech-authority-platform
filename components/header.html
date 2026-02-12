@@ -1,24 +1,172 @@
-<div class="site-header">
-  <div class="header-container">
-    
-    <a href="/" class="logo-brand">
-      <div class="logo-box">F</div>
-      <span>FinanceCalc <strong>Pro</strong></span>
+<!-- FinanceCalc Pro - Production Header Component (Vanilla HTML5) -->
+<!-- Copy this into any page's <body> right after the opening tag -->
+
+<header class="site-header" role="banner">
+  <div class="container site-header__inner">
+    <!-- Brand -->
+    <a href="/" class="site-logo">
+      <span class="site-logo__icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </span>
+      FinanceCalc Pro
     </a>
 
-    <nav class="desktop-nav">
-      <ul class="nav-links">
-        <li class="nav-item"><a href="/loans">Loans</a></li>
-        <li class="nav-item"><a href="/investments">Investments</a></li>
-        <li class="nav-item"><a href="/retirement">Retirement</a></li>
-        <li class="nav-item"><a href="/directory">All Tools</a></li>
-      </ul>
+    <!-- Center Navigation -->
+    <nav class="site-nav" aria-label="Main navigation">
+      <!-- Loans Dropdown -->
+      <div class="nav-item" data-dropdown>
+        <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+          Loans
+          <svg class="nav-item__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown" role="menu">
+          <a href="/us/mortgage-calculator/" class="nav-dropdown__link" role="menuitem">
+            <span class="nav-dropdown__icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            <span class="nav-dropdown__text"><span class="nav-dropdown__label">Mortgage</span><span class="nav-dropdown__hint">PITI payment breakdown</span></span>
+          </a>
+          <a href="/us/car-loan-calculator/" class="nav-dropdown__link" role="menuitem">
+            <span class="nav-dropdown__icon"><svg viewBox="0 0 24 24"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17H3v-6l2-5h9l4 5h1a2 2 0 0 1 2 2v4h-2"/><path d="M9 17h6"/></svg></span>
+            <span class="nav-dropdown__text"><span class="nav-dropdown__label">Auto Loan</span><span class="nav-dropdown__hint">Monthly car payment estimate</span></span>
+          </a>
+          <a href="/us/personal-loan-calculator/" class="nav-dropdown__link" role="menuitem">
+            <span class="nav-dropdown__icon"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>
+            <span class="nav-dropdown__text"><span class="nav-dropdown__label">Personal Loan</span><span class="nav-dropdown__hint">Unsecured loan calculator</span></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Investments Dropdown -->
+      <div class="nav-item" data-dropdown>
+        <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+          Investments
+          <svg class="nav-item__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown" role="menu">
+          <a href="/us/compound-interest-calculator/" class="nav-dropdown__link" role="menuitem">
+            <span class="nav-dropdown__icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+            <span class="nav-dropdown__text"><span class="nav-dropdown__label">Compound Interest</span><span class="nav-dropdown__hint">Visualize investment growth</span></span>
+          </a>
+          <a href="/us/roi-calculator/" class="nav-dropdown__link" role="menuitem">
+            <span class="nav-dropdown__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+            <span class="nav-dropdown__text"><span class="nav-dropdown__label">ROI Calculator</span><span class="nav-dropdown__hint">Return on investment analysis</span></span>
+          </a>
+          <a href="/us/cap-rate-calculator/" class="nav-dropdown__link" role="menuitem">
+            <span class="nav-dropdown__icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>
+            <span class="nav-dropdown__text"><span class="nav-dropdown__label">Cap Rate</span><span class="nav-dropdown__hint">Real estate capitalization rate</span></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Retirement Dropdown -->
+      <div class="nav-item" data-dropdown>
+        <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
+          Retirement
+          <svg class="nav-item__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown" role="menu">
+          <a href="/us/retirement-savings-calculator/" class="nav-dropdown__link" role="menuitem">
+            <span class="nav-dropdown__icon"><svg viewBox="0 0 24 24"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2"/><path d="M2 9.5a1 1 0 1 1 2 0"/></svg></span>
+            <span class="nav-dropdown__text"><span class="nav-dropdown__label">401(k) Calculator</span><span class="nav-dropdown__hint">Retirement nest egg projection</span></span>
+          </a>
+          <a href="/us/social-security-calculator/" class="nav-dropdown__link" role="menuitem">
+            <span class="nav-dropdown__icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+            <span class="nav-dropdown__text"><span class="nav-dropdown__label">Social Security</span><span class="nav-dropdown__hint">Estimate your SS benefits</span></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Tools Direct Link -->
+      <a href="/#tools" class="nav-item__trigger">Tools</a>
     </nav>
 
-    <div class="header-actions">
-      <a href="/login" class="login-text">Log In</a>
+    <!-- Right Utility -->
+    <div class="header-utility">
+      <button class="header-search-btn" aria-label="Open search" data-search-toggle>
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a href="/login" class="header-login">Log In</a>
       <a href="/start" class="header-cta">Get Started</a>
     </div>
 
+    <!-- Mobile Menu Toggle -->
+    <button class="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false" data-mobile-toggle>
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="search-overlay" aria-hidden="true" role="dialog" aria-label="Search calculators">
+  <div class="search-overlay__inner">
+    <div class="search-overlay__bar">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-overlay__input" type="search" placeholder="Search calculators..." aria-label="Search calculators" />
+      <kbd class="search-overlay__kbd">ESC</kbd>
+    </div>
+    <div class="search-overlay__hints">
+      <p>Try "mortgage", "compound interest", or "401k"</p>
+    </div>
   </div>
 </div>
+
+<!-- Mobile Navigation Panel -->
+<div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
+<aside class="mobile-nav-panel" id="mobile-nav-panel" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__header">
+    <a href="/" class="site-logo" style="margin-right:0;">
+      <span class="site-logo__icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </span>
+      FinanceCalc Pro
+    </a>
+    <button class="mobile-nav__close" aria-label="Close menu" data-mobile-close>
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-nav__body">
+    <p class="mobile-nav__section-title">Loans</p>
+    <a href="/us/mortgage-calculator/" class="mobile-nav__link">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Mortgage Calculator
+    </a>
+    <a href="/us/car-loan-calculator/" class="mobile-nav__link">
+      <svg viewBox="0 0 24 24"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17H3v-6l2-5h9l4 5h1a2 2 0 0 1 2 2v4h-2"/><path d="M9 17h6"/></svg>
+      Auto Loan
+    </a>
+    <a href="/us/personal-loan-calculator/" class="mobile-nav__link">
+      <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      Personal Loan
+    </a>
+    <p class="mobile-nav__section-title">Investments</p>
+    <a href="/us/compound-interest-calculator/" class="mobile-nav__link">
+      <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      Compound Interest
+    </a>
+    <a href="/us/roi-calculator/" class="mobile-nav__link">
+      <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      ROI Calculator
+    </a>
+    <a href="/us/cap-rate-calculator/" class="mobile-nav__link">
+      <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+      Cap Rate
+    </a>
+    <p class="mobile-nav__section-title">Retirement</p>
+    <a href="/us/retirement-savings-calculator/" class="mobile-nav__link">
+      <svg viewBox="0 0 24 24"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2"/><path d="M2 9.5a1 1 0 1 1 2 0"/></svg>
+      401(k) Calculator
+    </a>
+    <a href="/us/social-security-calculator/" class="mobile-nav__link">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Social Security
+    </a>
+    <p class="mobile-nav__section-title">Resources</p>
+    <a href="/#tools" class="mobile-nav__link">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      All Tools
+    </a>
+  </div>
+  <div class="mobile-nav__footer">
+    <a href="/start" class="header-cta">Get Started</a>
+    <a href="/login" class="header-login">Log In</a>
+  </div>
+</aside>
