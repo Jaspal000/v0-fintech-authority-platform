@@ -92,3 +92,75 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* --- FINTECH HEADER RULES --- */
+
+/* 1. Make the Header stick to the top like glue */
+.site-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0.95); /* White with a tiny bit of see-through */
+  backdrop-filter: blur(8px); /* The "Glass" effect */
+  border-bottom: 1px solid #e2e8f0; /* Slate-200 line */
+  font-family: 'Inter', sans-serif;
+}
+
+/* 2. Keep the content in the middle of the screen */
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* 3. The Logo (Navy Blue) */
+.logo-brand {
+  font-weight: 700;
+  font-size: 20px;
+  color: #0f172a; /* Deep Navy */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 4. The Middle Menu (Gray to Blue on hover) */
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.nav-item a:hover {
+  color: #2563eb; /* Electric Blue */
+}
+
+/* 5. The "Get Started" Blue Button */
+.header-cta {
+  background-color: #2563eb; /* Electric Blue */
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 8px; /* Smooth corners */
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: transform 0.1s;
+}
+
+.header-cta:hover {
+  background-color: #1d4ed8; /* Darker blue when you touch it */
+  transform: scale(1.02); /* Pops out a tiny bit */
+}
