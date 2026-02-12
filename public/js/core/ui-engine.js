@@ -164,6 +164,27 @@ export function initMobileNav() {
 }
 
 /**
+ * Resolve "Get Started" CTA href based on current page.
+ * On the homepage, scrolls to #tools. On subpages, navigates to /#tools.
+ * Uses event delegation so it works for dynamically injected headers.
+ */
+export function initCtaLinks() {
+  document.addEventListener('click', (e) => {
+    const cta = e.target.closest('.header-cta');
+    if (!cta) return;
+    const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+    if (isHomepage) {
+      const tools = document.getElementById('tools');
+      if (tools) {
+        e.preventDefault();
+        tools.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    // On subpages, the href="/#tools" will naturally navigate home and scroll
+  });
+}
+
+/**
  * Initialize dropdown navigation menus.
  * Handles hover on desktop, click on touch, keyboard navigation, and click-outside-to-close.
  */

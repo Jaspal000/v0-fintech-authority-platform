@@ -110,7 +110,7 @@ export default function HomePage() {
               <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             </button>
             <a href="/login" className="header-login">Log In</a>
-            <a href="/start" className="header-cta">Get Started</a>
+            <a href="/#tools" className="header-cta" id="cta-get-started">Get Started</a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -191,7 +191,7 @@ export default function HomePage() {
           </a>
         </div>
         <div className="mobile-nav__footer">
-          <a href="/start" className="header-cta">Get Started</a>
+          <a href="/#tools" className="header-cta">Get Started</a>
           <a href="/login" className="header-login">Log In</a>
         </div>
       </aside>
@@ -498,7 +498,7 @@ export default function HomePage() {
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-import { renderToolCards, initDropdowns, initSearchOverlay, initMobilePanel } from '/js/core/ui-engine.js';
+import { renderToolCards, initDropdowns, initSearchOverlay, initMobilePanel, initCtaLinks } from '/js/core/ui-engine.js';
 
 const tabs = document.querySelectorAll('.region-tab');
 let activeRegion = 'all';
@@ -523,6 +523,7 @@ switchRegion('all');
 initDropdowns();
 initSearchOverlay();
 initMobilePanel();
+initCtaLinks();
 `,
         }}
       />

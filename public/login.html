@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FinCalc | Free Financial Calculators for US, UK, Canada & Australia</title>
-  <meta name="description" content="100+ free, accurate financial calculators for mortgage, investing, tax, and budgeting. Region-specific tools for the US, UK, Canada, and Australia." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://fincalc.tools/" />
+  <title>Log In | FinanceCalc Pro</title>
+  <meta name="description" content="Sign in to your FinanceCalc Pro account to access saved calculations and personalized financial tools." />
+  <meta name="robots" content="noindex, nofollow" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,27 +13,219 @@
 
   <link rel="stylesheet" href="/css/main.css" />
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "FinCalc",
-    "url": "https://fincalc.tools/",
-    "description": "Free financial calculators for mortgage, investing, tax, and budgeting across the US, UK, Canada, and Australia.",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://fincalc.tools/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
+  <style>
+    .login-page {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 64px);
+      padding: var(--space-6);
+      background: var(--color-bg);
     }
-  }
-  </script>
+
+    .login-card {
+      width: 100%;
+      max-width: 420px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-10);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .login-card__brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-8);
+      text-decoration: none;
+    }
+
+    .login-card__brand-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: #2563eb;
+      border-radius: var(--radius-md);
+    }
+
+    .login-card__brand-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .login-card__brand-name {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.375rem;
+      color: #0f172a;
+    }
+
+    .login-card__heading {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: var(--space-2);
+    }
+
+    .login-card__subheading {
+      text-align: center;
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-8);
+    }
+
+    .login-form .form-group {
+      margin-bottom: var(--space-5);
+    }
+
+    .login-form .form-label {
+      display: block;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: var(--space-2);
+    }
+
+    .login-form .form-input {
+      width: 100%;
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-surface-alt);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--color-text);
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .login-form .form-input:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      background: var(--color-surface);
+    }
+
+    .login-form .form-input::placeholder {
+      color: var(--color-text-muted);
+    }
+
+    .login-form__forgot {
+      display: block;
+      text-align: right;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: #2563eb;
+      text-decoration: none;
+      margin-top: calc(-1 * var(--space-3));
+      margin-bottom: var(--space-6);
+      transition: color var(--transition-fast);
+    }
+
+    .login-form__forgot:hover {
+      color: #1d4ed8;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: var(--space-3) var(--space-6);
+      background: #0f172a;
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .login-btn:hover {
+      background: #1e293b;
+    }
+
+    .login-btn:focus-visible {
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+    }
+
+    .login-btn:active {
+      transform: scale(0.98);
+    }
+
+    .login-divider {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin: var(--space-6) 0;
+      color: var(--color-text-muted);
+      font-size: 0.8125rem;
+    }
+
+    .login-divider::before,
+    .login-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+
+    .login-card__footer {
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      margin-top: var(--space-6);
+    }
+
+    .login-card__footer a {
+      color: #2563eb;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .login-card__footer a:hover {
+      color: #1d4ed8;
+    }
+
+    .login-card__back {
+      display: block;
+      text-align: center;
+      margin-top: var(--space-6);
+      font-size: 0.8125rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .login-card__back:hover {
+      color: var(--color-text);
+    }
+
+    @media (max-width: 480px) {
+      .login-card {
+        padding: var(--space-6);
+        border: none;
+        box-shadow: none;
+        background: transparent;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Header -->
   <header class="site-header" role="banner">
     <div class="container site-header__inner">
-      <!-- Brand -->
       <a href="/" class="site-logo">
         <span class="site-logo__icon">
           <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
@@ -42,9 +233,7 @@
         FinanceCalc Pro
       </a>
 
-      <!-- Center Navigation -->
       <nav class="site-nav" aria-label="Main navigation">
-        <!-- Loans Dropdown -->
         <div class="nav-item" data-dropdown>
           <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
             Loans
@@ -66,7 +255,6 @@
           </div>
         </div>
 
-        <!-- Investments Dropdown -->
         <div class="nav-item" data-dropdown>
           <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
             Investments
@@ -88,7 +276,6 @@
           </div>
         </div>
 
-        <!-- Retirement Dropdown -->
         <div class="nav-item" data-dropdown>
           <button class="nav-item__trigger" aria-expanded="false" aria-haspopup="true">
             Retirement
@@ -106,11 +293,9 @@
           </div>
         </div>
 
-        <!-- Tools Direct Link -->
         <a href="/#tools" class="nav-item__trigger">Tools</a>
       </nav>
 
-      <!-- Right Utility -->
       <div class="header-utility">
         <button class="header-search-btn" aria-label="Open search" data-search-toggle>
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -119,7 +304,6 @@
         <a href="/#tools" class="header-cta" id="cta-get-started">Get Started</a>
       </div>
 
-      <!-- Mobile Menu Toggle -->
       <button class="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false" data-mobile-toggle>
         <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -131,7 +315,7 @@
     <div class="search-overlay__inner">
       <div class="search-overlay__bar">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input class="search-overlay__input" type="search" placeholder="Search calculators..." aria-label="Search calculators" autofocus />
+        <input class="search-overlay__input" type="search" placeholder="Search calculators..." aria-label="Search calculators" />
         <kbd class="search-overlay__kbd">ESC</kbd>
       </div>
       <div class="search-overlay__hints">
@@ -168,7 +352,6 @@
         <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
         Personal Loan
       </a>
-
       <p class="mobile-nav__section-title">Investments</p>
       <a href="/us/compound-interest-calculator/" class="mobile-nav__link">
         <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
@@ -182,7 +365,6 @@
         <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
         Cap Rate
       </a>
-
       <p class="mobile-nav__section-title">Retirement</p>
       <a href="/us/retirement-savings-calculator/" class="mobile-nav__link">
         <svg viewBox="0 0 24 24"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2"/><path d="M2 9.5a1 1 0 1 1 2 0"/></svg>
@@ -192,7 +374,6 @@
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         Social Security
       </a>
-
       <p class="mobile-nav__section-title">Resources</p>
       <a href="/#tools" class="mobile-nav__link">
         <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
@@ -206,104 +387,58 @@
   </aside>
 
   <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <span class="hero__badge">Free & Open Source</span>
-        <h1>Financial Calculators<br />Built for Precision</h1>
-        <p>
-          Accurate, region-specific tools for mortgage, investing, tax, and budgeting decisions.
-          Built by financial professionals for the US, UK, Canada, and Australia.
+    <div class="login-page">
+      <div class="login-card">
+        <a href="/" class="login-card__brand">
+          <span class="login-card__brand-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </span>
+          <span class="login-card__brand-name">FinanceCalc Pro</span>
+        </a>
+
+        <h1 class="login-card__heading">Welcome back</h1>
+        <p class="login-card__subheading">Sign in to access your saved calculations and tools.</p>
+
+        <form class="login-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="login-email" class="form-label">Email Address</label>
+            <input
+              id="login-email"
+              class="form-input"
+              type="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="login-password" class="form-label">Password</label>
+            <input
+              id="login-password"
+              class="form-input"
+              type="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+          <a href="#" class="login-form__forgot">Forgot password?</a>
+          <button type="submit" class="login-btn">Sign In</button>
+        </form>
+
+        <div class="login-divider">or</div>
+
+        <p class="login-card__footer">
+          Don&rsquo;t have an account? <a href="/#tools">Explore calculators</a>
         </p>
-      </div>
-    </section>
 
-    <!-- Tools Section -->
-    <section id="tools" style="padding-bottom: var(--space-20);">
-      <div class="container">
-        <!-- Region Tabs -->
-        <div class="region-tabs" role="tablist" aria-label="Select a region">
-          <button class="region-tab region-tab--active" role="tab" aria-selected="true" data-region="us">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            United States
-          </button>
-          <button class="region-tab" role="tab" aria-selected="false" data-region="uk">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            United Kingdom
-          </button>
-          <button class="region-tab" role="tab" aria-selected="false" data-region="ca">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            Canada
-          </button>
-          <button class="region-tab" role="tab" aria-selected="false" data-region="au">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            Australia
-          </button>
-        </div>
-
-        <!-- Tool Cards Grid -->
-        <div class="tool-grid" id="tool-grid" role="tabpanel" aria-label="Available calculators">
-          <!-- Dynamically populated by JS -->
-        </div>
+        <a href="/" class="login-card__back">&larr; Back to home</a>
       </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" style="padding: var(--space-16) 0;">
-      <div class="container container--narrow" style="text-align: center;">
-        <h2 style="margin-top: 0;">Why FinCalc?</h2>
-        <p style="font-size: 1.0625rem; max-width: 600px; margin-inline: auto;">
-          Every financial calculator on this platform uses the exact same formulas used by banks and lenders.
-          We isolate every formula as a pure function, present all math transparently, and tailor each tool
-          to the tax laws and conventions of your specific region. No ads, no tracking, no hidden fees.
-        </p>
-      </div>
-    </section>
+    </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <span class="site-footer__brand">FinCalc</span>
-      <ul class="site-footer__links">
-        <li><a href="/">Home</a></li>
-        <li><a href="#tools">All Calculators</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-      <p class="site-footer__copy">
-        &copy; 2026 FinCalc. All calculations are estimates for informational purposes only. Consult a financial professional before making decisions.
-      </p>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
   <script type="module">
-    import { renderToolCards, initDropdowns, initSearchOverlay, initMobilePanel, initCtaLinks } from '/js/core/ui-engine.js';
-
-    // Region tab switching
-    const tabs = document.querySelectorAll('.region-tab');
-    let activeRegion = 'us';
-
-    function switchRegion(region) {
-      activeRegion = region;
-      tabs.forEach(tab => {
-        const isActive = tab.getAttribute('data-region') === region;
-        tab.classList.toggle('region-tab--active', isActive);
-        tab.setAttribute('aria-selected', isActive);
-      });
-      renderToolCards(region, '#tool-grid');
-    }
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        switchRegion(tab.getAttribute('data-region'));
-      });
-    });
-
-    // Initial render
-    switchRegion('us');
-
-    // Header interactivity
+    import { initDropdowns, initSearchOverlay, initMobilePanel, initCtaLinks } from '/js/core/ui-engine.js';
     initDropdowns();
     initSearchOverlay();
     initMobilePanel();
