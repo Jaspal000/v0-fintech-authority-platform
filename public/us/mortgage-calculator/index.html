@@ -3,282 +3,109 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>US Mortgage Calculator (PITI) | FinCalc</title>
-  <meta name="description" content="Calculate your full US mortgage payment including Principal, Interest, Taxes, and Insurance (PITI). Free, accurate, and updated for current rates." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://fincalc.tools/us/mortgage-calculator/" />
-
-  <!-- Preconnect to Google Fonts -->
+  <title>US Mortgage Calculator (PITI) | FinanceCalc Pro</title>
+  <meta name="description" content="Calculate your full US mortgage payment including Principal, Interest, Taxes, and Insurance (PITI). Free, accurate, and updated for 2026." />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="/css/main.css" />
 
-  <!-- Schema.org: SoftwareApplication -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "US Mortgage Calculator (PITI)",
-    "applicationCategory": "FinanceApplication",
     "operatingSystem": "Web",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "description": "Free mortgage calculator that computes your full PITI payment including principal, interest, property taxes, homeowner's insurance, and PMI."
-  }
-  </script>
-
-  <!-- Schema.org: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What does PITI stand for?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "PITI stands for Principal, Interest, Taxes, and Insurance. These are the four components that make up most homeowners' monthly mortgage payment. Lenders use the full PITI figure to determine whether a borrower qualifies for a loan."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How is the monthly mortgage payment calculated?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The monthly principal and interest portion uses the standard amortization formula: M = P[r(1+r)^n]/[(1+r)^n-1], where P is the loan amount, r is the monthly interest rate, and n is the total number of payments. Taxes and insurance are then added on top of this figure."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "When can I stop paying PMI?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You can typically request removal of PMI once your loan-to-value ratio reaches 80%, meaning you have at least 20% equity in your home. Under the Homeowners Protection Act, PMI must be automatically cancelled when LTV reaches 78%."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is a good debt-to-income ratio for a mortgage?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Most lenders prefer a front-end DTI (housing costs to gross income) of no more than 28% and a back-end DTI (all debt payments to gross income) of no more than 36%. Some government-backed loan programs may allow higher ratios."
-        }
-      }
-    ]
+    "applicationCategory": "FinanceApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a href="/" class="site-logo">
-        <span class="site-logo__icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </span>
-        FinCalc
-      </a>
-      <button class="nav-mobile-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="/" class="site-nav__link">Home</a>
-        <a href="/#tools" class="site-nav__link site-nav__link--active">Calculators</a>
-        <a href="/#about" class="site-nav__link">About</a>
-      </nav>
-    </div>
-  </header>
+  <div id="header-slot"></div>
 
   <main>
-    <!-- Breadcrumbs -->
-    <div class="container">
-      <nav class="breadcrumbs" aria-label="Breadcrumb">
-        <a href="/">Home</a>
-        <span class="breadcrumbs__separator">/</span>
-        <a href="/#tools">US Calculators</a>
-        <span class="breadcrumbs__separator">/</span>
-        <span aria-current="page">Mortgage Calculator</span>
-      </nav>
-    </div>
+    <nav class="container breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a> / <a href="/us/">US Calculators</a> / <span aria-current="page">Mortgage</span>
+    </nav>
 
-    <!-- Calculator + Content Layout -->
-    <section class="calc-page">
-      <div class="container">
-        <div class="calc-layout">
+    <section class="calc-page container">
+      <div class="calc-layout">
+        
+        <article class="seo-content">
+          <h1>US Mortgage Calculator (PITI)</h1>
+          <p class="lead">
+            Understanding your <strong>PITI payment</strong> (Principal, Interest, Taxes, and Insurance) is the first step toward responsible homeownership. Our tool provides a professional-grade estimate updated for 2026 standards.
+          </p>
 
-          <!-- SEO Content Column -->
-          <div class="seo-content">
-            <h1>US Mortgage Calculator (PITI)</h1>
-            <p>
-              Buying a home is one of the most significant financial commitments you will make in your lifetime.
-              Understanding exactly how much your monthly mortgage payment will be is critical for budgeting,
-              comparing loan offers, and ensuring you do not overextend yourself. Our free US Mortgage Calculator
-              computes your full <strong>PITI payment</strong>&mdash;Principal, Interest, Taxes, and Insurance&mdash;so
-              you see the complete picture, not just a partial estimate.
-            </p>
+          
 
-            <h2>The Math Behind Your Mortgage Payment</h2>
-            <p>
-              The core of every fixed-rate mortgage is the standard <strong>amortization formula</strong>. This formula
-              determines how much of each payment goes toward reducing your loan balance (principal) versus paying the
-              cost of borrowing (interest). At the start of a 30-year mortgage, the vast majority of your payment goes
-              toward interest. Over time, the balance shifts until nearly all of your payment reduces the principal.
-            </p>
+          <h2>The Amortization Formula</h2>
+          <p>We use the standard banking formula to ensure 100% accuracy:</p>
+          <div class="formula-block">
+            M = P &times; [ r(1 + r)<sup>n</sup> ] / [ (1 + r)<sup>n</sup> &minus; 1 ]
+          </div>
 
-            <div class="formula-block">
-              M = P &times; [ r(1 + r)<sup>n</sup> ] / [ (1 + r)<sup>n</sup> &minus; 1 ]
-            </div>
+          <h3>Principal & Interest</h3>
+          <p>The "P&I" is the base of your loan. In the early years, your payments mostly cover interest. Over 30 years, this flips as you build equity.</p>
 
-            <p>
-              In this formula, <strong>M</strong> is your monthly principal and interest payment,
-              <strong>P</strong> is the loan principal (home price minus your down payment),
-              <strong>r</strong> is the monthly interest rate (your annual rate divided by 12), and
-              <strong>n</strong> is the total number of monthly payments (loan term in years multiplied by 12).
-            </p>
+          <h3>Taxes & Insurance</h3>
+          <p>Most calculators ignore these, but they can add 20-30% to your actual monthly cost. We include local property tax estimates and homeowners insurance to give you the truth.</p>
 
-            <h3>Principal (P)</h3>
-            <p>
-              The principal is the amount you actually borrow. If you purchase a $350,000 home and make a 20% down
-              payment of $70,000, your principal is $280,000. The larger your down payment, the smaller the loan
-              you need&mdash;which means lower monthly payments and less total interest paid over the life of the loan.
-            </p>
-
-            <h3>Interest (I)</h3>
-            <p>
-              The interest rate is the annual cost of borrowing money, expressed as a percentage. Even small differences
-              in your rate have enormous effects over a 30-year term. For example, on a $280,000 loan, the difference
-              between a 6.0% rate and a 6.5% rate is roughly $100 per month, and adds up to over $36,000 in additional
-              interest over the full term.
-            </p>
-
-            <h3>Taxes (T)</h3>
-            <p>
-              Property taxes are assessed by your local government and are typically expressed as a percentage of your
-              home's assessed value. In the United States, the average effective property tax rate is approximately 1.1%,
-              but it varies dramatically by state&mdash;from as low as 0.27% in Hawaii to over 2.2% in New Jersey.
-              Lenders often collect property taxes as part of your monthly payment and hold the funds in an escrow
-              account, paying the tax bill on your behalf.
-            </p>
-
-            <h3>Insurance (I)</h3>
-            <p>
-              Homeowner's insurance protects you against damage to your property from events like fire, storms, and
-              theft. The average annual premium in the US is approximately $1,200 to $2,000, depending on the state,
-              the value of your home, and your deductible. Like property taxes, insurance is frequently included in
-              your escrow payment.
-            </p>
-
-            <h3>PMI (Private Mortgage Insurance)</h3>
-            <p>
-              If your down payment is less than 20% of the home's value, most conventional lenders will require you
-              to carry Private Mortgage Insurance. PMI typically costs between 0.5% and 1.5% of the original loan
-              amount per year. You can request removal of PMI once your loan-to-value ratio drops to 80%, and under
-              the Homeowners Protection Act it must be automatically cancelled at 78% LTV.
-            </p>
-
-            <h2>How to Use This Calculator</h2>
-            <p>
-              Enter the <strong>home price</strong>, your planned <strong>down payment percentage</strong>, the
-              <strong>interest rate</strong> you have been quoted (or expect), and your <strong>loan term</strong> in
-              years. Then provide your local <strong>property tax rate</strong> and your estimated annual
-              <strong>insurance premium</strong>. Click "Calculate Payment" to see a full breakdown of your estimated
-              monthly obligation, including whether PMI applies to your scenario.
-            </p>
-            <p>
-              Use this tool to compare different scenarios. Try adjusting the down payment to see how reaching the
-              20% threshold eliminates PMI. Experiment with 15-year versus 30-year terms to see how a shorter loan
-              dramatically reduces total interest paid, even though the monthly payment increases.
-            </p>
-
+          <div class="faq-container">
             <h2>Frequently Asked Questions</h2>
-            <ul class="faq-list">
-              <li class="faq-item">
-                <button class="faq-question" aria-expanded="false">What does PITI stand for?</button>
-                <div class="faq-answer">
-                  <p>
-                    PITI stands for <strong>Principal, Interest, Taxes, and Insurance</strong>. These four components
-                    make up the bulk of a homeowner's monthly mortgage obligation. Lenders use the full PITI figure
-                    when determining whether a borrower qualifies for a loan based on debt-to-income ratio limits.
-                  </p>
-                </div>
-              </li>
-              <li class="faq-item">
-                <button class="faq-question" aria-expanded="false">How is the monthly payment calculated?</button>
-                <div class="faq-answer">
-                  <p>
-                    The principal and interest portion uses the standard amortization formula shown above. Property
-                    tax and insurance are then divided by 12 and added to the P&amp;I figure. If PMI applies, it is
-                    also divided monthly and included.
-                  </p>
-                </div>
-              </li>
-              <li class="faq-item">
-                <button class="faq-question" aria-expanded="false">When can I stop paying PMI?</button>
-                <div class="faq-answer">
-                  <p>
-                    You can request removal of PMI once your loan-to-value (LTV) ratio reaches 80%, which means you
-                    have at least 20% equity in your home. Under the Homeowners Protection Act, your lender must
-                    automatically cancel PMI when LTV reaches 78% of the original property value.
-                  </p>
-                </div>
-              </li>
-              <li class="faq-item">
-                <button class="faq-question" aria-expanded="false">What is a good debt-to-income ratio?</button>
-                <div class="faq-answer">
-                  <p>
-                    Most lenders follow the 28/36 rule: your housing costs (PITI) should not exceed 28% of your
-                    gross monthly income (front-end DTI), and your total debt payments should not exceed 36%
-                    (back-end DTI). Government-backed loans like FHA may allow higher ratios.
-                  </p>
-                </div>
-              </li>
-            </ul>
+            <details class="faq-item">
+              <summary>What is PITI?</summary>
+              <p>It stands for Principal, Interest, Taxes, and Insurance—the four pillars of a mortgage payment.</p>
+            </details>
+            <details class="faq-item">
+              <summary>When does PMI stop?</summary>
+              <p>Typically when your loan-to-value ratio reaches 80% (20% equity).</p>
+            </details>
           </div>
+        </article>
 
-          <!-- Calculator Widget Column -->
-          <div class="calc-widget">
-            <h2 class="calc-widget__title">Mortgage Payment Calculator</h2>
+        <aside class="calc-sidebar">
+          <div class="calc-card-wrapper">
+            <h2 class="sidebar-title">Calculate Your Payment</h2>
             <div id="calculator-mount">
-              <!-- Web Component injected here by ui-engine -->
+              <div class="loading-spinner">Initializing Calculator...</div>
             </div>
           </div>
+        </aside>
 
-        </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <span class="site-footer__brand">FinCalc</span>
-      <ul class="site-footer__links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/#tools">All Calculators</a></li>
-        <li><a href="/#about">About</a></li>
-      </ul>
-      <p class="site-footer__copy">
-        &copy; 2026 FinCalc. All calculations are estimates for informational purposes only. Consult a financial professional before making decisions.
-      </p>
-    </div>
-  </footer>
+  <div id="footer-slot"></div>
 
-  <!-- Scripts (ES Modules) -->
   <script type="module">
-    import { hydrateCalculator, initFAQ, initMobileNav } from '/js/core/ui-engine.js';
-    // Import the component so it registers its custom element
+    import { hydrateCalculator, initFAQ } from '/js/core/ui-engine.js';
     import '/js/components/mortgage-calc-us.js';
 
+    // Function to load Header and Footer from your components folder
+    async function loadComponents() {
+      try {
+        const [hRes, fRes] = await Promise.all([
+          fetch('/components/header.html'),
+          fetch('/components/footer.html')
+        ]);
+        
+        document.getElementById('header-slot').innerHTML = await hRes.text();
+        document.getElementById('footer-slot').innerHTML = await fRes.text();
+      } catch (err) {
+        console.error("Component loading failed. Check your file paths.", err);
+      }
+    }
+
+    // Run everything
+    loadComponents();
     hydrateCalculator('#calculator-mount');
     initFAQ();
-    initMobileNav();
   </script>
 
 </body>
