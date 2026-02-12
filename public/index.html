@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinCalc | Free Financial Calculators for US, UK, Canada & Australia</title>
+  <meta name="description" content="100+ free, accurate financial calculators for mortgage, investing, tax, and budgeting. Region-specific tools for the US, UK, Canada, and Australia." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://fincalc.tools/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "FinCalc",
+    "url": "https://fincalc.tools/",
+    "description": "Free financial calculators for mortgage, investing, tax, and budgeting across the US, UK, Canada, and Australia.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://fincalc.tools/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="/" class="site-logo">
+        <span class="site-logo__icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </span>
+        FinCalc
+      </a>
+      <button class="nav-mobile-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/" class="site-nav__link site-nav__link--active">Home</a>
+        <a href="#tools" class="site-nav__link">Calculators</a>
+        <a href="#about" class="site-nav__link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <span class="hero__badge">Free & Open Source</span>
+        <h1>Financial Calculators<br />Built for Precision</h1>
+        <p>
+          Accurate, region-specific tools for mortgage, investing, tax, and budgeting decisions.
+          Built by financial professionals for the US, UK, Canada, and Australia.
+        </p>
+      </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" style="padding-bottom: var(--space-20);">
+      <div class="container">
+        <!-- Region Tabs -->
+        <div class="region-tabs" role="tablist" aria-label="Select a region">
+          <button class="region-tab region-tab--active" role="tab" aria-selected="true" data-region="us">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            United States
+          </button>
+          <button class="region-tab" role="tab" aria-selected="false" data-region="uk">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            United Kingdom
+          </button>
+          <button class="region-tab" role="tab" aria-selected="false" data-region="ca">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Canada
+          </button>
+          <button class="region-tab" role="tab" aria-selected="false" data-region="au">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Australia
+          </button>
+        </div>
+
+        <!-- Tool Cards Grid -->
+        <div class="tool-grid" id="tool-grid" role="tabpanel" aria-label="Available calculators">
+          <!-- Dynamically populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="padding: var(--space-16) 0;">
+      <div class="container container--narrow" style="text-align: center;">
+        <h2 style="margin-top: 0;">Why FinCalc?</h2>
+        <p style="font-size: 1.0625rem; max-width: 600px; margin-inline: auto;">
+          Every financial calculator on this platform uses the exact same formulas used by banks and lenders.
+          We isolate every formula as a pure function, present all math transparently, and tailor each tool
+          to the tax laws and conventions of your specific region. No ads, no tracking, no hidden fees.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span class="site-footer__brand">FinCalc</span>
+      <ul class="site-footer__links">
+        <li><a href="/">Home</a></li>
+        <li><a href="#tools">All Calculators</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <p class="site-footer__copy">
+        &copy; 2026 FinCalc. All calculations are estimates for informational purposes only. Consult a financial professional before making decisions.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module">
+    import { renderToolCards, initMobileNav } from '/js/core/ui-engine.js';
+
+    // Region tab switching
+    const tabs = document.querySelectorAll('.region-tab');
+    let activeRegion = 'us';
+
+    function switchRegion(region) {
+      activeRegion = region;
+      tabs.forEach(tab => {
+        const isActive = tab.getAttribute('data-region') === region;
+        tab.classList.toggle('region-tab--active', isActive);
+        tab.setAttribute('aria-selected', isActive);
+      });
+      renderToolCards(region, '#tool-grid');
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        switchRegion(tab.getAttribute('data-region'));
+      });
+    });
+
+    // Initial render
+    switchRegion('us');
+    initMobileNav();
+  </script>
+
+</body>
+</html>
