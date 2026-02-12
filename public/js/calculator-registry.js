@@ -30,6 +30,42 @@ export const CALCULATOR_REGISTRY = {
         shortDesc: 'Visualize investment growth with flexible compounding frequency options.',
       },
     },
+    budgeting: {
+      'debt-payoff-calculator': {
+        title: 'Debt Payoff Calculator | FinCalc',
+        metaDescription:
+          'Plan your debt-free date with our free debt payoff calculator. Compare avalanche vs snowball methods and see how extra payments save you money.',
+        formulaKey: 'us/debt-payoff',
+        h1: 'Debt Payoff Calculator',
+        componentTag: 'debt-payoff-calc-us',
+        icon: 'credit-card',
+        shortDesc: 'Plan your path to debt freedom with avalanche and snowball strategies.',
+      },
+    },
+    retirement: {
+      'retirement-savings-calculator': {
+        title: '401(k) & Retirement Savings Calculator | FinCalc',
+        metaDescription:
+          'Estimate how much you need to retire comfortably. Factor in 401(k) contributions, employer match, Social Security, and inflation.',
+        formulaKey: 'us/retirement',
+        h1: '401(k) & Retirement Savings Calculator',
+        componentTag: 'retirement-calc-us',
+        icon: 'piggy-bank',
+        shortDesc: 'Project your retirement nest egg with 401(k) match and inflation adjustments.',
+      },
+    },
+    tax: {
+      'income-tax-calculator': {
+        title: 'Federal Income Tax Calculator | FinCalc',
+        metaDescription:
+          'Estimate your federal income tax for the current year. Includes standard deduction, marginal tax brackets, and effective tax rate.',
+        formulaKey: 'us/income-tax',
+        h1: 'Federal Income Tax Calculator',
+        componentTag: 'income-tax-calc-us',
+        icon: 'receipt',
+        shortDesc: 'Estimate your federal tax liability with current brackets and deductions.',
+      },
+    },
   },
   uk: {
     tax: {
@@ -102,6 +138,22 @@ export function getToolsByRegion(region) {
   for (const [category, categoryTools] of Object.entries(regionData)) {
     for (const [slug, config] of Object.entries(categoryTools)) {
       tools.push({ slug, category, ...config });
+    }
+  }
+  return tools;
+}
+
+/**
+ * Get all tools across all regions as a flat array.
+ * @returns {Array<{slug: string, category: string, region: string, ...config}>}
+ */
+export function getAllTools() {
+  const tools = [];
+  for (const [region, regionData] of Object.entries(CALCULATOR_REGISTRY)) {
+    for (const [category, categoryTools] of Object.entries(regionData)) {
+      for (const [slug, config] of Object.entries(categoryTools)) {
+        tools.push({ slug, category, region, ...config });
+      }
     }
   }
   return tools;

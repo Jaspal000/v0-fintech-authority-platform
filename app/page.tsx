@@ -98,6 +98,27 @@ export default function HomePage() {
                 className="region-tab region-tab--active"
                 role="tab"
                 aria-selected="true"
+                data-region="all"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                </svg>
+                All Regions
+              </button>
+              <button
+                className="region-tab"
+                role="tab"
+                aria-selected="false"
                 data-region="us"
               >
                 <svg
@@ -241,7 +262,7 @@ export default function HomePage() {
 import { renderToolCards, initMobileNav } from '/js/core/ui-engine.js';
 
 const tabs = document.querySelectorAll('.region-tab');
-let activeRegion = 'us';
+let activeRegion = 'all';
 
 function switchRegion(region) {
   activeRegion = region;
@@ -259,7 +280,7 @@ tabs.forEach(tab => {
   });
 });
 
-switchRegion('us');
+switchRegion('all');
 initMobileNav();
 `,
         }}
