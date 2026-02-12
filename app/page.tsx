@@ -122,16 +122,51 @@ export default function HomePage() {
                 data-region="us"
               >
                 <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
+                  width="20"
+                  height="14"
+                  viewBox="0 0 60 42"
                   fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
+                  aria-hidden="true"
+                  style={{ borderRadius: "2px", flexShrink: 0 }}
                 >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M2 12h20" />
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  <rect width="60" height="42" fill="#fff" />
+                  <rect width="60" height="3.23" fill="#B22234" />
+                  <rect y="6.46" width="60" height="3.23" fill="#B22234" />
+                  <rect y="12.92" width="60" height="3.23" fill="#B22234" />
+                  <rect y="19.38" width="60" height="3.23" fill="#B22234" />
+                  <rect y="25.85" width="60" height="3.23" fill="#B22234" />
+                  <rect y="32.31" width="60" height="3.23" fill="#B22234" />
+                  <rect y="38.77" width="60" height="3.23" fill="#B22234" />
+                  <rect width="24" height="22.62" fill="#3C3B6E" />
+                  <g fill="#fff">
+                    <circle cx="4" cy="3.5" r="1.2" />
+                    <circle cx="8" cy="3.5" r="1.2" />
+                    <circle cx="12" cy="3.5" r="1.2" />
+                    <circle cx="16" cy="3.5" r="1.2" />
+                    <circle cx="20" cy="3.5" r="1.2" />
+                    <circle cx="6" cy="6.5" r="1.2" />
+                    <circle cx="10" cy="6.5" r="1.2" />
+                    <circle cx="14" cy="6.5" r="1.2" />
+                    <circle cx="18" cy="6.5" r="1.2" />
+                    <circle cx="4" cy="9.5" r="1.2" />
+                    <circle cx="8" cy="9.5" r="1.2" />
+                    <circle cx="12" cy="9.5" r="1.2" />
+                    <circle cx="16" cy="9.5" r="1.2" />
+                    <circle cx="20" cy="9.5" r="1.2" />
+                    <circle cx="6" cy="12.5" r="1.2" />
+                    <circle cx="10" cy="12.5" r="1.2" />
+                    <circle cx="14" cy="12.5" r="1.2" />
+                    <circle cx="18" cy="12.5" r="1.2" />
+                    <circle cx="4" cy="15.5" r="1.2" />
+                    <circle cx="8" cy="15.5" r="1.2" />
+                    <circle cx="12" cy="15.5" r="1.2" />
+                    <circle cx="16" cy="15.5" r="1.2" />
+                    <circle cx="20" cy="15.5" r="1.2" />
+                    <circle cx="6" cy="18.5" r="1.2" />
+                    <circle cx="10" cy="18.5" r="1.2" />
+                    <circle cx="14" cy="18.5" r="1.2" />
+                    <circle cx="18" cy="18.5" r="1.2" />
+                  </g>
                 </svg>
                 United States
               </button>
@@ -142,16 +177,18 @@ export default function HomePage() {
                 data-region="uk"
               >
                 <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
+                  width="20"
+                  height="14"
+                  viewBox="0 0 60 42"
                   fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
+                  aria-hidden="true"
+                  style={{ borderRadius: "2px", flexShrink: 0 }}
                 >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M2 12h20" />
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  <rect width="60" height="42" fill="#00247D" />
+                  <path d="M0 0L60 42M60 0L0 42" stroke="#fff" strokeWidth="7" />
+                  <path d="M0 0L60 42M60 0L0 42" stroke="#CF142B" strokeWidth="4" />
+                  <path d="M30 0V42M0 21H60" stroke="#fff" strokeWidth="10" />
+                  <path d="M30 0V42M0 21H60" stroke="#CF142B" strokeWidth="6" />
                 </svg>
                 United Kingdom
               </button>
@@ -162,16 +199,20 @@ export default function HomePage() {
                 data-region="ca"
               >
                 <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
+                  width="20"
+                  height="14"
+                  viewBox="0 0 60 42"
                   fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
+                  aria-hidden="true"
+                  style={{ borderRadius: "2px", flexShrink: 0 }}
                 >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M2 12h20" />
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  <rect width="60" height="42" fill="#fff" />
+                  <rect width="15" height="42" fill="#FF0000" />
+                  <rect x="45" width="15" height="42" fill="#FF0000" />
+                  <path
+                    d="M30 8l-2 6-5-1 3 4-3 4 5-1 2 6 2-6 5 1-3-4 3-4-5 1z"
+                    fill="#FF0000"
+                  />
                 </svg>
                 Canada
               </button>
@@ -182,16 +223,26 @@ export default function HomePage() {
                 data-region="au"
               >
                 <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
+                  width="20"
+                  height="14"
+                  viewBox="0 0 60 42"
                   fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
+                  aria-hidden="true"
+                  style={{ borderRadius: "2px", flexShrink: 0 }}
                 >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M2 12h20" />
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  <rect width="60" height="42" fill="#00008B" />
+                  <rect width="30" height="21" fill="#00008B" />
+                  <path d="M0 0L30 21M30 0L0 21" stroke="#fff" strokeWidth="4" />
+                  <path d="M0 0L30 21M30 0L0 21" stroke="#CF142B" strokeWidth="2" />
+                  <path d="M15 0V21M0 10.5H30" stroke="#fff" strokeWidth="5" />
+                  <path d="M15 0V21M0 10.5H30" stroke="#CF142B" strokeWidth="3" />
+                  <g fill="#fff">
+                    <polygon points="45,12 45.9,14.8 48.9,14.8 46.5,16.5 47.4,19.3 45,17.6 42.6,19.3 43.5,16.5 41.1,14.8 44.1,14.8" />
+                    <polygon points="52,26 52.6,28 54.7,28 53,29.2 53.7,31.2 52,30 50.3,31.2 51,29.2 49.3,28 51.4,28" />
+                    <polygon points="52,6 52.6,8 54.7,8 53,9.2 53.7,11.2 52,10 50.3,11.2 51,9.2 49.3,8 51.4,8" />
+                    <polygon points="38,30 38.6,32 40.7,32 39,33.2 39.7,35.2 38,34 36.3,35.2 37,33.2 35.3,32 37.4,32" />
+                    <polygon points="42,22 42.4,23.2 43.7,23.2 42.6,24 43,25.2 42,24.4 41,25.2 41.4,24 40.3,23.2 41.6,23.2" />
+                  </g>
                 </svg>
                 Australia
               </button>
