@@ -283,24 +283,84 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="site-footer">
-        <div className="container site-footer__inner">
-          <span className="site-footer__brand">FinCalc</span>
-          <ul className="site-footer__links">
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="#tools">All Calculators</a>
-            </li>
-            <li>
-              <a href="#about">About</a>
-            </li>
-          </ul>
-          <p className="site-footer__copy">
-            {
-              "\u00A9 2026 FinCalc. All calculations are estimates for informational purposes only. Consult a financial professional before making decisions."
-            }
-          </p>
+        <div className="container">
+          <div className="footer-main">
+            {/* Brand Column */}
+            <div className="footer-brand">
+              <a href="/" className="footer-brand__logo">
+                <span className="footer-brand__logo-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5" />
+                    <path d="M2 12l10 5 10-5" />
+                  </svg>
+                </span>
+                FinanceCalc Pro
+              </a>
+              <p className="footer-brand__mission">
+                Precision-engineered financial tools for global markets.
+                Professional-grade math for every decision.
+              </p>
+              <div className="footer-regions">
+                <a href="/#tools" className="footer-region-pill footer-region-pill--active">US</a>
+                <a href="/#tools" className="footer-region-pill">UK</a>
+                <a href="/#tools" className="footer-region-pill">CA</a>
+                <a href="/#tools" className="footer-region-pill">AU</a>
+              </div>
+            </div>
+
+            {/* Loan Tools */}
+            <div className="footer-col">
+              <h3 className="footer-col__heading">Loan Tools</h3>
+              <ul className="footer-col__list">
+                <li><a href="/us/mortgage-calculator/">Mortgage</a></li>
+                <li><a href="/us/car-loan-calculator/">Car Loan</a></li>
+                <li><a href="/us/personal-loan-calculator/">Personal Loan</a></li>
+                <li><a href="/us/amortization-calculator/">Amortization</a></li>
+              </ul>
+            </div>
+
+            {/* Investments */}
+            <div className="footer-col">
+              <h3 className="footer-col__heading">Investments</h3>
+              <ul className="footer-col__list">
+                <li><a href="/us/compound-interest-calculator/">Compound Interest</a></li>
+                <li><a href="/us/roi-calculator/">ROI</a></li>
+                <li><a href="/us/cap-rate-calculator/">Cap Rate</a></li>
+                <li><a href="/us/net-worth-calculator/">Net Worth</a></li>
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div className="footer-col">
+              <h3 className="footer-col__heading">Resources</h3>
+              <ul className="footer-col__list">
+                <li><a href="/#about">About Us</a></li>
+                <li><a href="/methodology/">Financial Methodology</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/editorial-policy/">Editorial Policy</a></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Legal Anchor */}
+          <div className="footer-legal">
+            <p className="footer-legal__copy">
+              {"\u00A9 2026 FinanceCalc Pro. All rights reserved."}
+            </p>
+            <ul className="footer-legal__links">
+              <li><a href="/privacy/">Privacy</a></li>
+              <li><a href="/terms/">Terms</a></li>
+              <li><a href="/disclaimer/">Disclaimer</a></li>
+            </ul>
+            <div className="footer-legal__meta">
+              <span className="footer-status">
+                <span className="footer-status__dot" aria-hidden="true" />
+                System Status: Online
+              </span>
+              <span className="footer-version">v1.0.4-Stable</span>
+            </div>
+          </div>
         </div>
       </footer>
 
