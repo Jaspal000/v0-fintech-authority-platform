@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Dynamic meta (overwritten by JS) -->
+  <title>Calculator | FinanceCalc Pro</title>
+  <meta name="description" content="Free, accurate financial calculator. FinanceCalc Pro." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/calculator-page.css" />
+
+  <!-- Structured Data (dynamically enhanced by JS) -->
+  <script type="application/ld+json" id="schema-software">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "FinanceCalc Pro Calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Shared Header (injected by load-components.js) -->
+  <div id="header-slot"></div>
+
+  <main>
+    <!-- Breadcrumbs -->
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb" id="breadcrumbs">
+        <a href="/">Home</a>
+        <span class="breadcrumbs__separator">/</span>
+        <a href="/#tools">Calculators</a>
+        <span class="breadcrumbs__separator">/</span>
+        <span aria-current="page" id="breadcrumb-current">Calculator</span>
+      </nav>
+    </div>
+
+    <!-- Calculator + SEO Layout -->
+    <section class="calc-page">
+      <div class="container">
+        <div class="calc-layout">
+
+          <!-- SEO Content Column (injected by JS) -->
+          <div class="seo-content" id="seo-content">
+            <h1 id="page-h1">Loading Calculator...</h1>
+            <p>Please wait while the calculator loads.</p>
+          </div>
+
+          <!-- Calculator Widget Column -->
+          <div class="calc-widget" id="calc-widget">
+            <h2 class="calc-widget__title" id="calc-title">Calculator</h2>
+            <form id="calc-form" autocomplete="off">
+              <!-- Dynamic inputs rendered here -->
+            </form>
+            <div class="results-panel" id="results-panel" hidden aria-live="polite" role="region" aria-label="Calculation results">
+              <!-- Dynamic results rendered here -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-slot">
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span class="site-footer__brand">FinanceCalc Pro</span>
+        <ul class="site-footer__links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/#tools">All Calculators</a></li>
+          <li><a href="/#about">About</a></li>
+        </ul>
+        <p class="site-footer__copy">
+          &copy; 2026 FinanceCalc Pro. All calculations are estimates for informational purposes only. Consult a professional before making financial decisions.
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Load shared header component -->
+  <script type="module" src="/js/core/load-components.js"></script>
+
+  <!-- Main Calculator Engine -->
+  <script type="module">
+    import { TOOL_REGISTRY } from '/js/calculator-registry.js';
+
+    /**
+     * Detect which tool to load.
+     * Priority:
+     *   1. URL path: /us/<slug>/  ->  slug
+     *   2. Query param: ?tool=<slug>
+     *   3. Fallback: first tool in registry
+     */
+    function detectTool() {
+      // Try URL path first: /us/mortgage-calculator/ or /us/mortgage-calculator
+      const pathSegments = window.location.pathname.split('/').filter(Boolean);
+      if (pathSegments.length >= 2) {
+        const slug = pathSegments[pathSegments.length - 1].replace(/\.html$/, '');
+        if (TOOL_REGISTRY[slug]) return slug;
+        // Also check second-to-last in case trailing slash creates empty segment
+        if (pathSegments.length >= 2) {
+          const altSlug = pathSegments[1];
+          if (TOOL_REGISTRY[altSlug]) return altSlug;
+        }
+      }
+
+      // Try query param
+      const params = new URLSearchParams(window.location.search);
+      const toolParam = params.get('tool');
+      if (toolParam && TOOL_REGISTRY[toolParam]) return toolParam;
+
+      // Fallback
+      return Object.keys(TOOL_REGISTRY)[0];
+    }
+
+    /**
+     * Format a number as USD currency.
+     */
+    function fmt(value) {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(value);
+    }
+
+    /**
+     * Build the calculator form from the tool's input definitions.
+     */
+    function renderForm(tool, formEl) {
+      formEl.innerHTML = '';
+
+      tool.inputs.forEach(function(input) {
+        var group = document.createElement('div');
+        group.className = 'form-group';
+
+        var label = document.createElement('label');
+        label.className = 'form-label';
+        label.setAttribute('for', 'calc-' + input.id);
+        label.textContent = input.label;
+        group.appendChild(label);
+
+        if (input.type === 'select' && input.options) {
+          var select = document.createElement('select');
+          select.className = 'form-input';
+          select.id = 'calc-' + input.id;
+          select.name = input.id;
+          input.options.forEach(function(opt) {
+            var option = document.createElement('option');
+            option.value = opt.value;
+            option.textContent = opt.label;
+            if (opt.value == input.default) option.selected = true;
+            select.appendChild(option);
+          });
+          group.appendChild(select);
+        } else {
+          var inp = document.createElement('input');
+          inp.className = 'form-input';
+          inp.type = 'number';
+          inp.id = 'calc-' + input.id;
+          inp.name = input.id;
+          inp.value = input.default;
+          if (input.min !== undefined) inp.min = input.min;
+          if (input.max !== undefined) inp.max = input.max;
+          if (input.step !== undefined) inp.step = input.step;
+          inp.setAttribute('aria-label', input.label);
+          group.appendChild(inp);
+        }
+
+        formEl.appendChild(group);
+      });
+    }
+
+    /**
+     * Read all current form values.
+     */
+    function readFormValues(tool, formEl) {
+      var values = {};
+      tool.inputs.forEach(function(input) {
+        var el = formEl.querySelector('#calc-' + input.id);
+        if (!el) { values[input.id] = input.default; return; }
+        var val = parseFloat(el.value);
+        values[input.id] = isNaN(val) ? input.default : val;
+      });
+      return values;
+    }
+
+    /**
+     * Render calculation results.
+     */
+    function renderResults(tool, results, panelEl) {
+      panelEl.innerHTML = '';
+      panelEl.hidden = false;
+
+      tool.resultRows.forEach(function(row) {
+        var value = results[row.key];
+        var div = document.createElement('div');
+
+        if (row.highlight) {
+          div.className = 'result-highlight';
+        } else {
+          div.className = 'result-row';
+        }
+
+        var labelSpan = document.createElement('span');
+        labelSpan.className = 'result-label';
+        labelSpan.textContent = row.label;
+        div.appendChild(labelSpan);
+
+        var valueSpan = document.createElement('span');
+        valueSpan.className = 'result-value';
+
+        // Format based on type
+        if (row.format === 'text') {
+          valueSpan.textContent = value;
+        } else if (row.format === 'decimal') {
+          valueSpan.textContent = (typeof value === 'number') ? value.toFixed(1) : value;
+        } else if (row.format === 'weight') {
+          valueSpan.textContent = (typeof value === 'number') ? value.toFixed(1) + ' lbs' : value;
+        } else {
+          valueSpan.textContent = (typeof value === 'number') ? fmt(value) : value;
+        }
+
+        div.appendChild(valueSpan);
+        panelEl.appendChild(div);
+      });
+    }
+
+    /**
+     * Initialize FAQ accordion from injected SEO content.
+     */
+    function initFAQ() {
+      var faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(function(item) {
+        var btn = item.querySelector('.faq-question');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          var isOpen = item.classList.contains('faq-item--open');
+          // Close all others
+          faqItems.forEach(function(i) { i.classList.remove('faq-item--open'); });
+          if (!isOpen) item.classList.add('faq-item--open');
+        });
+      });
+    }
+
+    /* ---- MAIN INIT ---- */
+    var slug = detectTool();
+    var tool = TOOL_REGISTRY[slug];
+
+    if (!tool) {
+      document.getElementById('page-h1').textContent = 'Calculator Not Found';
+      document.getElementById('seo-content').innerHTML =
+        '<h1>Calculator Not Found</h1><p>The requested calculator could not be found. <a href="/#tools">Browse all calculators</a>.</p>';
+    } else {
+      // Update page metadata
+      document.title = tool.meta.title;
+      var metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', tool.meta.description);
+
+      // Update breadcrumb
+      document.getElementById('breadcrumb-current').textContent = tool.meta.breadcrumb;
+
+      // Inject SEO content
+      var seoEl = document.getElementById('seo-content');
+      seoEl.innerHTML = '<h1>' + tool.meta.h1 + '</h1>' + tool.seoContent;
+
+      // Update widget title
+      document.getElementById('calc-title').textContent = tool.meta.h1;
+
+      // Update structured data
+      var schemaEl = document.getElementById('schema-software');
+      if (schemaEl) {
+        try {
+          var schema = JSON.parse(schemaEl.textContent);
+          schema.name = tool.meta.h1;
+          schema.description = tool.meta.description;
+          schemaEl.textContent = JSON.stringify(schema);
+        } catch(e) { /* ignore */ }
+      }
+
+      // Build form
+      var formEl = document.getElementById('calc-form');
+      var panelEl = document.getElementById('results-panel');
+      renderForm(tool, formEl);
+
+      // Run calculation function
+      function calculate() {
+        var values = readFormValues(tool, formEl);
+        var results = tool.formula(values);
+        renderResults(tool, results, panelEl);
+      }
+
+      // Live calculation: run on every input change
+      formEl.addEventListener('input', calculate);
+
+      // Also run on Enter key
+      formEl.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          calculate();
+        }
+      });
+
+      // Initial calculation on page load
+      calculate();
+
+      // Init FAQ after SEO content is injected
+      initFAQ();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    { "source": "/us/mortgage-calculator", "destination": "/calculator.html" },
+    { "source": "/us/mortgage-calculator/", "destination": "/calculator.html" },
+    { "source": "/us/car-loan-calculator", "destination": "/calculator.html" },
+    { "source": "/us/car-loan-calculator/", "destination": "/calculator.html" },
+    { "source": "/us/salary-calculator", "destination": "/calculator.html" },
+    { "source": "/us/salary-calculator/", "destination": "/calculator.html" },
+    { "source": "/us/compound-interest-calculator", "destination": "/calculator.html" },
+    { "source": "/us/compound-interest-calculator/", "destination": "/calculator.html" },
+    { "source": "/us/bmi-calculator", "destination": "/calculator.html" },
+    { "source": "/us/bmi-calculator/", "destination": "/calculator.html" }
+  ]
+}
