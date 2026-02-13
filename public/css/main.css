@@ -464,6 +464,7 @@ p {
   background: #1d4ed8;
   color: #fff;
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  transform: scale(1.02);
 }
 
 .header-cta:focus-visible {
@@ -1404,9 +1405,12 @@ p {
     display: none;
   }
 
-  .header-utility .header-login,
   .header-utility .header-cta {
     display: none;
+  }
+
+  .header-utility {
+    margin-left: 0;
   }
 
   .nav-mobile-toggle {

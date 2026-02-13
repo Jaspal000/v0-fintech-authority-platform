@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'FinCalc | Free Financial Calculators',
-  description: 'Free, accurate financial calculators for mortgage, investing, tax, and budgeting. Region-specific tools for the US, UK, Canada, and Australia.',
+  title: 'FinanceCalc Pro | Free Financial Calculators',
+  description: 'Precision-engineered financial calculators for mortgage, investing, retirement, and budgeting. Region-specific tools for the US, UK, Canada, and Australia.',
 }
 
 export default function RootLayout({
