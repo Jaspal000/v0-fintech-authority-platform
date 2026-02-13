@@ -1,7 +1,7 @@
 import Script from "next/script";
 
 export const metadata = {
-  title: "FinCalc | Free Financial Calculators for US, UK, Canada & Australia",
+  title: "FinanceCalc Pro | Free Financial Calculators for US, UK, Canada & Australia",
   description:
     "100+ free, accurate financial calculators for mortgage, investing, tax, and budgeting. Region-specific tools for the US, UK, Canada, and Australia.",
 };
@@ -516,7 +516,7 @@ export default function HomePage() {
             className="container container--narrow"
             style={{ textAlign: "center" }}
           >
-            <h2 style={{ marginTop: 0 }}>Why FinCalc?</h2>
+            <h2 style={{ marginTop: 0 }}>Why FinanceCalc Pro?</h2>
             <p
               style={{
                 fontSize: "1.0625rem",
