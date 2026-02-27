@@ -1,7 +1,7 @@
 import Script from "next/script";
 
 export const metadata = {
-  title: "FinCalc | Free Financial Calculators for US, UK, Canada & Australia",
+  title: "FinanceCalc Pro | Free Financial Calculators for US, UK, Canada & Australia",
   description:
     "100+ free, accurate financial calculators for mortgage, investing, tax, and budgeting. Region-specific tools for the US, UK, Canada, and Australia.",
 };
@@ -24,6 +24,7 @@ export default function HomePage() {
       {/* Header */}
       <header className="site-header">
         <div className="container site-header__inner">
+          {/* Left: Brand */}
           <a href="/" className="site-logo">
             <span className="site-logo__icon">
               <svg viewBox="0 0 24 24">
@@ -32,41 +33,293 @@ export default function HomePage() {
                 <path d="M2 12l10 5 10-5" />
               </svg>
             </span>
-            FinCalc
+            FinanceCalc Pro
           </a>
+
+          {/* Center: Navigation with Dropdowns */}
+          <nav className="site-nav" aria-label="Main navigation">
+            {/* Loans Dropdown */}
+            <div className="nav-item" data-nav-item>
+              <button
+                className="nav-item__trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+                type="button"
+              >
+                Loans
+                <svg className="nav-item__chevron" viewBox="0 0 24 24">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div className="nav-dropdown" role="menu">
+                <a href="/us/mortgage-calculator/" className="nav-dropdown__link" role="menuitem">
+                  <span className="nav-dropdown__icon">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                      <polyline points="9 22 9 12 15 12 15 22" />
+                    </svg>
+                  </span>
+                  <span className="nav-dropdown__text">
+                    <span className="nav-dropdown__label">Mortgage</span>
+                    <span className="nav-dropdown__hint">Calculate monthly payments</span>
+                  </span>
+                </a>
+                <a href="/us/car-loan-calculator/" className="nav-dropdown__link" role="menuitem">
+                  <span className="nav-dropdown__icon">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="1" y="3" width="15" height="13" rx="2" ry="2" />
+                      <path d="M16 8h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2" />
+                      <circle cx="5.5" cy="18.5" r="2.5" />
+                      <circle cx="13.5" cy="18.5" r="2.5" />
+                    </svg>
+                  </span>
+                  <span className="nav-dropdown__text">
+                    <span className="nav-dropdown__label">Auto</span>
+                    <span className="nav-dropdown__hint">Vehicle financing options</span>
+                  </span>
+                </a>
+                <a href="/us/personal-loan-calculator/" className="nav-dropdown__link" role="menuitem">
+                  <span className="nav-dropdown__icon">
+                    <svg viewBox="0 0 24 24">
+                      <line x1="12" y1="1" x2="12" y2="23" />
+                      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                    </svg>
+                  </span>
+                  <span className="nav-dropdown__text">
+                    <span className="nav-dropdown__label">Personal</span>
+                    <span className="nav-dropdown__hint">Personal loan estimator</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            {/* Investments Dropdown */}
+            <div className="nav-item" data-nav-item>
+              <button
+                className="nav-item__trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+                type="button"
+              >
+                Investments
+                <svg className="nav-item__chevron" viewBox="0 0 24 24">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div className="nav-dropdown" role="menu">
+                <a href="/us/compound-interest-calculator/" className="nav-dropdown__link" role="menuitem">
+                  <span className="nav-dropdown__icon">
+                    <svg viewBox="0 0 24 24">
+                      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                    </svg>
+                  </span>
+                  <span className="nav-dropdown__text">
+                    <span className="nav-dropdown__label">Compound Interest</span>
+                    <span className="nav-dropdown__hint">Growth over time</span>
+                  </span>
+                </a>
+                <a href="/us/roi-calculator/" className="nav-dropdown__link" role="menuitem">
+                  <span className="nav-dropdown__icon">
+                    <svg viewBox="0 0 24 24">
+                      <line x1="18" y1="20" x2="18" y2="10" />
+                      <line x1="12" y1="20" x2="12" y2="4" />
+                      <line x1="6" y1="20" x2="6" y2="14" />
+                    </svg>
+                  </span>
+                  <span className="nav-dropdown__text">
+                    <span className="nav-dropdown__label">ROI</span>
+                    <span className="nav-dropdown__hint">Return on investment</span>
+                  </span>
+                </a>
+                <a href="/us/cap-rate-calculator/" className="nav-dropdown__link" role="menuitem">
+                  <span className="nav-dropdown__icon">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                      <line x1="3" y1="9" x2="21" y2="9" />
+                      <line x1="9" y1="21" x2="9" y2="9" />
+                    </svg>
+                  </span>
+                  <span className="nav-dropdown__text">
+                    <span className="nav-dropdown__label">Cap Rate</span>
+                    <span className="nav-dropdown__hint">Real estate capitalization</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            {/* Retirement Dropdown */}
+            <div className="nav-item" data-nav-item>
+              <button
+                className="nav-item__trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+                type="button"
+              >
+                Retirement
+                <svg className="nav-item__chevron" viewBox="0 0 24 24">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div className="nav-dropdown" role="menu">
+                <a href="/us/401k-calculator/" className="nav-dropdown__link" role="menuitem">
+                  <span className="nav-dropdown__icon">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16" />
+                      <path d="M1 21h22" />
+                      <path d="M9 7h6" />
+                      <path d="M9 11h6" />
+                      <path d="M9 15h6" />
+                    </svg>
+                  </span>
+                  <span className="nav-dropdown__text">
+                    <span className="nav-dropdown__label">401(k)</span>
+                    <span className="nav-dropdown__hint">Retirement savings planner</span>
+                  </span>
+                </a>
+                <a href="/us/social-security-calculator/" className="nav-dropdown__link" role="menuitem">
+                  <span className="nav-dropdown__icon">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                  </span>
+                  <span className="nav-dropdown__text">
+                    <span className="nav-dropdown__label">Social Security</span>
+                    <span className="nav-dropdown__hint">Benefits estimator</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            {/* Tools Direct Link */}
+            <a href="/#tools" className="nav-item__trigger">
+              Tools
+            </a>
+          </nav>
+
+          {/* Right: Utility */}
+          <div className="header-utility">
+            <button
+              className="header-search-btn"
+              aria-label="Search calculators"
+              type="button"
+              id="search-trigger"
+            >
+              <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </button>
+            <a href="/#tools" className="header-cta">
+              Get Started
+            </a>
+          </div>
+
+          {/* Mobile Toggle */}
           <button
             className="nav-mobile-toggle"
             aria-label="Toggle navigation"
             aria-expanded="false"
+            type="button"
+            id="mobile-toggle"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
+            <svg viewBox="0 0 24 24">
               <line x1="3" y1="6" x2="21" y2="6" />
               <line x1="3" y1="12" x2="21" y2="12" />
               <line x1="3" y1="18" x2="21" y2="18" />
             </svg>
           </button>
-          <nav className="site-nav" aria-label="Main navigation">
-            <a href="/" className="site-nav__link site-nav__link--active">
-              Home
-            </a>
-            <a href="#tools" className="site-nav__link">
-              Calculators
-            </a>
-            <a href="#about" className="site-nav__link">
-              About
-            </a>
-          </nav>
         </div>
       </header>
+
+      {/* Search Overlay */}
+      <div className="search-overlay" id="search-overlay" role="dialog" aria-label="Search calculators" aria-modal="true">
+        <div className="search-overlay__inner">
+          <div className="search-overlay__bar">
+            <svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input
+              type="text"
+              className="search-overlay__input"
+              placeholder="Search calculators..."
+              autoComplete="off"
+              id="search-input"
+            />
+            <kbd className="search-overlay__kbd">ESC</kbd>
+          </div>
+          <div className="search-overlay__hints">
+            <p>{'Try "mortgage", "compound interest", or "401k"'}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Drawer */}
+      <div className="mobile-nav-backdrop" id="mobile-backdrop" />
+      <div className="mobile-nav-panel" id="mobile-panel" role="dialog" aria-label="Navigation menu" aria-modal="true">
+        <div className="mobile-nav__header">
+          <a href="/" className="site-logo" style={{ marginRight: 0 }}>
+            <span className="site-logo__icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                <path d="M2 17l10 5 10-5" />
+                <path d="M2 12l10 5 10-5" />
+              </svg>
+            </span>
+            FinanceCalc Pro
+          </a>
+          <button className="mobile-nav__close" aria-label="Close navigation" type="button" id="mobile-close">
+            <svg viewBox="0 0 24 24">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+        <div className="mobile-nav__body">
+          <div className="mobile-nav__section-title">Loans</div>
+          <a href="/us/mortgage-calculator/" className="mobile-nav__link">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
+            Mortgage
+          </a>
+          <a href="/us/car-loan-calculator/" className="mobile-nav__link">
+            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2" ry="2" /><path d="M16 8h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="13.5" cy="18.5" r="2.5" /></svg>
+            Auto
+          </a>
+          <a href="/us/personal-loan-calculator/" className="mobile-nav__link">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+            Personal
+          </a>
+
+          <div className="mobile-nav__section-title">Investments</div>
+          <a href="/us/compound-interest-calculator/" className="mobile-nav__link">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>
+            Compound Interest
+          </a>
+          <a href="/us/roi-calculator/" className="mobile-nav__link">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" /></svg>
+            ROI
+          </a>
+          <a href="/us/cap-rate-calculator/" className="mobile-nav__link">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><line x1="3" y1="9" x2="21" y2="9" /><line x1="9" y1="21" x2="9" y2="9" /></svg>
+            Cap Rate
+          </a>
+
+          <div className="mobile-nav__section-title">Retirement</div>
+          <a href="/us/401k-calculator/" className="mobile-nav__link">
+            <svg viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16" /><path d="M1 21h22" /><path d="M9 7h6" /><path d="M9 11h6" /><path d="M9 15h6" /></svg>
+            {'401(k)'}
+          </a>
+          <a href="/us/social-security-calculator/" className="mobile-nav__link">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+            Social Security
+          </a>
+        </div>
+        <div className="mobile-nav__footer">
+          <a href="/#tools" className="header-cta">
+            Get Started
+          </a>
+        </div>
+      </div>
 
       <main>
         {/* Hero */}
@@ -263,7 +516,7 @@ export default function HomePage() {
             className="container container--narrow"
             style={{ textAlign: "center" }}
           >
-            <h2 style={{ marginTop: 0 }}>Why FinCalc?</h2>
+            <h2 style={{ marginTop: 0 }}>Why FinanceCalc Pro?</h2>
             <p
               style={{
                 fontSize: "1.0625rem",
@@ -370,8 +623,9 @@ export default function HomePage() {
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-import { renderToolCards, initMobileNav } from '/js/core/ui-engine.js';
+import { renderToolCards } from '/js/core/ui-engine.js';
 
+/* ---- Region Tabs ---- */
 const tabs = document.querySelectorAll('.region-tab');
 let activeRegion = 'all';
 
@@ -392,7 +646,105 @@ tabs.forEach(tab => {
 });
 
 switchRegion('all');
-initMobileNav();
+
+/* ---- Desktop Dropdown Navigation ---- */
+const navItems = document.querySelectorAll('[data-nav-item]');
+let openItem = null;
+let closeTimer = null;
+
+function openDropdown(item) {
+  if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+  if (openItem && openItem !== item) closeDropdown(openItem);
+  item.classList.add('nav-item--open');
+  item.querySelector('.nav-item__trigger')?.setAttribute('aria-expanded', 'true');
+  openItem = item;
+}
+
+function closeDropdown(item) {
+  item.classList.remove('nav-item--open');
+  item.querySelector('.nav-item__trigger')?.setAttribute('aria-expanded', 'false');
+  if (openItem === item) openItem = null;
+}
+
+navItems.forEach(item => {
+  item.addEventListener('mouseenter', () => openDropdown(item));
+  item.addEventListener('mouseleave', () => {
+    closeTimer = setTimeout(() => closeDropdown(item), 150);
+  });
+  const trigger = item.querySelector('.nav-item__trigger');
+  if (trigger) {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      item.classList.contains('nav-item--open') ? closeDropdown(item) : openDropdown(item);
+    });
+  }
+});
+
+document.addEventListener('click', (e) => {
+  if (openItem && !openItem.contains(e.target)) closeDropdown(openItem);
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && openItem) closeDropdown(openItem);
+});
+
+/* ---- Search Overlay ---- */
+const searchTrigger = document.getElementById('search-trigger');
+const searchOverlay = document.getElementById('search-overlay');
+const searchInput = document.getElementById('search-input');
+
+function openSearch() {
+  searchOverlay.classList.add('search-overlay--open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => searchInput?.focus(), 100);
+}
+
+function closeSearch() {
+  searchOverlay.classList.remove('search-overlay--open');
+  document.body.style.overflow = '';
+  if (searchInput) searchInput.value = '';
+}
+
+searchTrigger?.addEventListener('click', openSearch);
+searchOverlay?.addEventListener('click', (e) => {
+  if (e.target === searchOverlay) closeSearch();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && searchOverlay?.classList.contains('search-overlay--open')) closeSearch();
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+});
+
+/* ---- Mobile Drawer ---- */
+const mobileToggle = document.getElementById('mobile-toggle');
+const mobilePanel = document.getElementById('mobile-panel');
+const mobileBackdrop = document.getElementById('mobile-backdrop');
+const mobileClose = document.getElementById('mobile-close');
+
+function openMobile() {
+  mobilePanel.classList.add('mobile-nav-panel--open');
+  mobileBackdrop.classList.add('mobile-nav-backdrop--open');
+  mobileToggle?.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobile() {
+  mobilePanel.classList.remove('mobile-nav-panel--open');
+  mobileBackdrop.classList.remove('mobile-nav-backdrop--open');
+  mobileToggle?.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+mobileToggle?.addEventListener('click', openMobile);
+mobileClose?.addEventListener('click', closeMobile);
+mobileBackdrop?.addEventListener('click', closeMobile);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobilePanel?.classList.contains('mobile-nav-panel--open')) closeMobile();
+});
+
+// Close mobile drawer on link click
+mobilePanel?.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', closeMobile);
+});
 `,
         }}
       />
